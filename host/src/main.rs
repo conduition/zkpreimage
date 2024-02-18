@@ -24,7 +24,7 @@ fn main() {
     // Produce a receipt by proving the specified ELF binary.
     println!("proving execution...");
     let receipt = prover
-        .prove(env, PROVABLE_SHA256_ELF)
+        .prove(env, PROVABLE_SHA256_DLOG_ELF)
         .expect("failed to prove"); // <-------- CRASH HERE
 
     // Parse the journal from a receipt.
@@ -45,6 +45,6 @@ fn main() {
     // The receipt was verified at the end of proving, but the below code is an
     // example of how someone else could verify this receipt.
     println!("verifying receipt...");
-    receipt.verify(PROVABLE_SHA256_ID).unwrap();
+    receipt.verify(PROVABLE_SHA256_DLOG_ID).unwrap();
     println!("OK");
 }
